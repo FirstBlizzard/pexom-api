@@ -14,10 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint
-app.use('/db/auth', authRouter);
+app.use('/api/v1/auth', authRouter);
 
 // Ruta para el mensaje "It works!" en la ruta raíz
-app.get('/db', (req, res) => {
+app.get('/api/v1', (req, res) => {
   res.send('Todo correcto');
 });
 
