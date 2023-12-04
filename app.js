@@ -3,6 +3,7 @@ var cors = require('cors');
 
 // Routers
 const { authRouter } = require('./routes/auth.routes');
+const { generateHash } = require('./utils/bcrypt');
 
 // Init express app
 const app = express();
@@ -20,5 +21,14 @@ app.use('/api/v1/auth', authRouter);
 app.get('/api/v1', (req, res) => {
   res.send('Todo correcto');
 });
+
+// Ejecutar generateHash fuera de cualquier manejador de ruta
+// generateHash('password0802')
+//   .then((hash) => {
+//     console.log(hash);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
 
 module.exports = { app };
