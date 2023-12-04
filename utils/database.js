@@ -11,6 +11,12 @@ const db = new Sequelize({
   password: process.env.DB_PASSWORD,
   database: process.env.DB,
   logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Puedes necesitar establecer esto en false si estás usando un certificado autofirmado
+    },
+  },
 });
 
 module.exports = { db };
